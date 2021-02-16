@@ -1,6 +1,9 @@
 import React from 'react'
 
+// componentes
 import InputForm from './components/InputForm'
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
 
 // app css
 import './css/App.css'
@@ -10,14 +13,19 @@ class App extends React.Component {
         super(props)
 
         this.state = {
-            input: ''
+            input: '',
+            isLoading: false
         }
     }
 
     render() {
         return (
-            <div className="main-content">
-                <InputForm />
+            <div className="main-page">
+                <Navbar />
+                <div className="main-content">
+                    <InputForm />
+                </div>
+                <Footer />
             </div>
         )
     }
