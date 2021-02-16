@@ -13,9 +13,23 @@ class App extends React.Component {
         super(props)
 
         this.state = {
-            input: '',
+            firstHour: '',
+            secondHour: '',
             isLoading: false
         }
+    }
+
+    // com o order é possível utilizar essa mesma função para tratar os dois casos de mudança dos horários
+    onChangeHourHandler = (content, order) => {
+        this.setState({
+            [order]: content.target.value
+        })
+
+        console.log(content.target.value)
+    }
+
+    onSubmitButton = () => {
+        console.log(this.state)
     }
 
     render() {
@@ -23,7 +37,7 @@ class App extends React.Component {
             <div className="main-page">
                 <Navbar />
                 <div className="main-content">
-                    <InputForm />
+                    <InputForm onChangeHourHandler={this.onChangeHourHandler} onSubmitButton={this.onSubmitButton} />
                 </div>
                 <Footer />
             </div>
