@@ -29,6 +29,28 @@ router.post('/', function(req, res, next) {
     if (firstTimeHours == secondTimeHours && firstTimeMinutes == secondTimeMinutes) {
         return res.status(400).send('twentyfourHours-invalid')
     }
+
+    let dayHours = 0
+    let dayMinutes = 0
+
+    let nightHours = 0
+    let nightMinutes = 0
+
+    let minutesCounter = firstTimeMinutes
+    let hoursCounter = firstTimeHours
+
+    for(let i = 0; i !== 1;) {
+        if (minutesCounter == 60) {
+            hoursCounter++
+            minutesCounter = 0
+        }
+
+        // if (minutesCounter == secondTimeMinutes && hoursCounter == secondTimeHours) {
+        //     return console.log(hoursCounter, minutesCounter)
+        // }
+
+        minutesCounter++
+    }
 })
 
 module.exports = router
