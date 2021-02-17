@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 // componentes
 import InputForm from './components/InputForm'
@@ -24,12 +25,25 @@ class App extends React.Component {
         this.setState({
             [order]: content.target.value
         })
-
-        console.log(content.target.value)
     }
 
-    onSubmitButton = () => {
-        console.log(this.state)
+    onSubmitButton = async () => {
+        const data = {
+            firstTime: this.state.firstHour,
+            secondTime: this.state.secondHour
+        }
+
+        try {
+            const response = await axios({
+                method: 'POST',
+                url: 'http://localhost:8080/calculo',
+                data: data
+            })
+
+            console.log(response)
+        } catch(error) {
+            console.log(error.response)
+        }
     }
 
     render() {
