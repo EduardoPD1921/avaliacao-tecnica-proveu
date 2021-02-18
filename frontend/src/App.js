@@ -43,7 +43,7 @@ class App extends React.Component {
 
         axios({
             method: 'POST',
-            url: 'http://localhost:8080/calculo',
+            url: 'https://api-proveu.herokuapp.com/calculo',
             data: data
         })
             // define os valores da resposta do backend nos respectivos valores do state
