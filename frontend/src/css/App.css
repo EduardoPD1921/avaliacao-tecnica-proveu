@@ -6,7 +6,13 @@ html, body {
 
 .main-content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 700px;
+}
+
+span {
+    margin-top: 10px;
+    color: red;
 }

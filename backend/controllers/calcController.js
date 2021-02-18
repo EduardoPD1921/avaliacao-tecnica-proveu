@@ -56,6 +56,11 @@ exports.get_calc = (req, res, next) => {
             nightMinutes = 0
         }
 
+        // contador de horas geral
+        if (hoursCounter == 24) {
+            hoursCounter = 0
+        }
+
         // condição atingida quando o horári inicial encontrar o segundo horário
         if (minutesCounter == secondTimeMinutes && hoursCounter == secondTimeHours) {
 
@@ -84,11 +89,6 @@ exports.get_calc = (req, res, next) => {
             }
 
             return res.send(JSON.stringify(response))
-        }
-
-        // contador de horas geral
-        if (hoursCounter == 24) {
-            hoursCounter = 0
         }
 
         // contador de minutos diurno
